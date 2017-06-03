@@ -37,12 +37,12 @@ As a tutorial (and for easy on boarding) we have added two default module implem
 1) SamplePublishCustomModule: This published hello to customer.  
 
 2) FetchPersonalDetailFromEmailCustomModule:  This uses email of customer and use that to fetch their details making HTTP call to clearbit.  
-( NOTE: To use this you will have to replace field named "<CLEARBIT_API_KEY>" in class FetchPersonalDetailFromEmailCustomModule) with your personal key ).  
+( NOTE: To use this you will have to replace field named "\<CLEARBIT_API_KEY>\" in class FetchPersonalDetailFromEmailCustomModule) with your personal key ).  
 
 #### Dependency addition
 
 While making this feature we have tried to give user freedom to use whatever libraries or any third party services they want to use.They can add
-maven dependencies in build.gradle.
-( NOTE: only dependencies defined in block "dependencies { ...<Your Dependecies Go Here>... } " will be picked )
+maven dependencies in build.gradle.  
+( NOTE: only dependencies defined in block "dependencies { ...\<Your Dependecies Go Here\>... } " will be picked )
 
 P.S : If you have any suggestion or doubt or even free time you can connect us at contact.morph.ai we will be more than happy to talk with someone else other our team :) .
