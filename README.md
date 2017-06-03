@@ -45,4 +45,4 @@ While making this feature we have tried to give user freedom to use whatever lib
 maven dependencies in build.gradle.  
 ( NOTE: only dependencies defined in block "dependencies { ...\<Your Dependecies Go Here\>... } " will be picked )
 
-P.S : If you have any suggestion or doubt or even free time you can connect us at contact.morph.ai we will be more than happy to talk with someone else other our team :) .
+P.S : If you have any suggestion or doubt or even free time you can connect us at contact@morph.ai we will be more than happy to talk with someone else out of our team :) .
