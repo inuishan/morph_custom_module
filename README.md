@@ -1,4 +1,4 @@
-# morph_custom_module
+# Custom Code Module
 It is easy and convinient to make a chatbot from UI, but that can take us only so far. Almost every serious user have one or the other use case which cannot be built or served from UI and to overcome that shortcoming we have introduced the concept of Custom Code Module. Using Custom Code Module botmakers can write their custom logic private to their organisation and use that at any point in flow execution.
 
 This repo provides skeleton to write custom modules which can be consumed by bot from UI (https://app.morph.ai/build/flow) .
@@ -21,7 +21,7 @@ d. ### user
 This signifies the action the custom module wants to take.
 Action have three implementations as of now:
 
-a. ####PublishMessageAction: This can be used to send a message to customer.
+a. #### PublishMessageAction: This can be used to send a message to customer.
 
 b. #### SetVariableAction: This can be used to set any varibale with given Key, Value and VaribleScope (one of the User , Flow and Global).
 
