@@ -30,7 +30,9 @@ This can be used to set any varibale with given Key, Value and VaribleScope (one
 c) GoToFlowAction:  
 This can be used to jump over to any particular flow with given Key along with a flag signifying whether to rerun current flow or not. 
 
-As a tutorial (and easy on boarding) we have added two default module implementations:
+## Example Modules:
+
+As a tutorial (and for easy on boarding) we have added two default module implementations:
 
 1) SamplePublishCustomModule:  
 This published hello to customer.
