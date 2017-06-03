@@ -11,8 +11,8 @@ This contains execution context of bot at the point when custom module is called
 
 Bot context have four field which are self understood:
 
-a. ### userVariables  
-b. ### flowVariables  
+a. # userVariables  
+b. ## flowVariables  
 c. ### globalVariables  
 d. ### user  
 
