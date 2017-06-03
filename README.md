@@ -30,17 +30,16 @@ This can be used to set any varibale with given Key, Value and VaribleScope (one
 c) GoToFlowAction:  
 This can be used to jump over to any particular flow with given Key along with a flag signifying whether to rerun current flow or not. 
 
-## Example Modules:
+#### Example Modules:
 
 As a tutorial (and for easy on boarding) we have added two default module implementations:
 
-1) SamplePublishCustomModule:  
-This published hello to customer.
+1) SamplePublishCustomModule: This published hello to customer.  
 
-2) FetchPersonalDetailFromEmailCustomModule:  
-This uses email of customer and use that to fetch their details making HTTP call to clearbit.
-( NOTE: To use this you will have to replace field named "<CLEARBIT_API_KEY>" in class FetchPersonalDetailFromEmailCustomModule) with your personal key ).
+2) FetchPersonalDetailFromEmailCustomModule:  This uses email of customer and use that to fetch their details making HTTP call to clearbit.  
+( NOTE: To use this you will have to replace field named "<CLEARBIT_API_KEY>" in class FetchPersonalDetailFromEmailCustomModule) with your personal key ).  
 
+#### Dependency addition
 
 While making this feature we have tried to give user freedom to use whatever libraries or any third party services they want to use.They can add
 maven dependencies in build.gradle.
