@@ -24,7 +24,7 @@ import java.util.Optional;
 @Service
 public class FetchPersonalDetailFromEmailCustomModule implements Module {
 
-    private static final String CLEARBIT_API_KEY = "sk_491946ed89030717a1f0b072fe8b4a94";
+    private static final String CLEARBIT_API_KEY = "<CLEARBIT_API_KEY>";
     private static final String clearbitPath = "https://person.clearbit.com/v1/people/email/";
 
     private static final GenericRestConnector genericRestConnector = new GenericRestConnector();
