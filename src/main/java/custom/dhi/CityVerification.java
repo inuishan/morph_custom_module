@@ -52,7 +52,7 @@ public class CityVerification implements Module {
 
     @Override
     public List<Action> execute(BotContext botContext) {
-        Optional<Object> flowVariable = botContext.getFlowVariable("#understanderResponse_#message");
+        Optional<Object> flowVariable = botContext.getFlowVariable("5936f80454e66318322eed25");
         List<Action> actions = new ArrayList<Action>();
         Object o = flowVariable.get();
         String lastMessage = (String) o;
