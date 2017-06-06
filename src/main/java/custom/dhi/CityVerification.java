@@ -24,8 +24,24 @@ public class CityVerification implements Module {
     private static final Set<String> VALID_CITY_NAMES = new HashSet<String>();
 
     static {
-        VALID_CITY_NAMES.add("gurgaon");
         VALID_CITY_NAMES.add("delhi");
+        VALID_CITY_NAMES.add("gurugram");
+        VALID_CITY_NAMES.add("mumbai");
+        VALID_CITY_NAMES.add("bangalore");
+        VALID_CITY_NAMES.add("pune");
+        VALID_CITY_NAMES.add("chennai");
+        VALID_CITY_NAMES.add("kolkata");
+        VALID_CITY_NAMES.add("kochi");
+        VALID_CITY_NAMES.add("ahmedabad");
+        VALID_CITY_NAMES.add("hyderabad");
+        VALID_CITY_NAMES.add("chandigarh");
+        VALID_CITY_NAMES.add("ludhiana");
+        VALID_CITY_NAMES.add("jaipur");
+        VALID_CITY_NAMES.add("surat");
+        VALID_CITY_NAMES.add("calicut");
+        VALID_CITY_NAMES.add("saharanpur");
+        VALID_CITY_NAMES.add("guwahati");
+        VALID_CITY_NAMES.add("lucknow");
     }
 
 
