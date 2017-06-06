@@ -57,7 +57,7 @@ public class CityVerification implements Module {
         Object o = flowVariable.get();
         String lastMessage = (String) o;
         if (VALID_CITY_NAMES.contains(lastMessage.toLowerCase())) {
-            actions.add(new SetVariableAction(VariableScope.USER, "sjdks", lastMessage.toLowerCase()));
+            actions.add(new SetVariableAction(VariableScope.USER, "5935644354e6637f6a976d99", lastMessage.toLowerCase()));
             SimplifiedMessage message = new SimplifiedMessage();
             TextMessagePayload payload = new TextMessagePayload();
             payload.setText("Hello variable set" + botContext.getUser().getName());
@@ -77,7 +77,7 @@ public class CityVerification implements Module {
             PublishMessageAction e = new PublishMessageAction();
             e.setSimplifiedMessage(message);
             actions.add(e);
-            actions.add(new GoToFlowAction("ddd", false));
+            actions.add(new GoToFlowAction("cityFailed", false));
         }
         return actions;
     }
