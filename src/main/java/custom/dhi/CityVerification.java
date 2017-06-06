@@ -45,7 +45,7 @@ public class CityVerification implements Module {
             SimplifiedMessage message = new SimplifiedMessage();
             TextMessagePayload payload = new TextMessagePayload();
             payload.setText("Hello variable set" + botContext.getUser().getName());
-            ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<>();
+            ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<SimplifiedMessagePayload>();
             payloads.add(payload);
             message.setPayloads(payloads);
             PublishMessageAction e = new PublishMessageAction();
@@ -55,7 +55,7 @@ public class CityVerification implements Module {
             SimplifiedMessage message = new SimplifiedMessage();
             TextMessagePayload payload = new TextMessagePayload();
             payload.setText("Hello variable not set" + botContext.getUser().getName());
-            ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<>();
+            ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<SimplifiedMessagePayload>();
             payloads.add(payload);
             message.setPayloads(payloads);
             PublishMessageAction e = new PublishMessageAction();
