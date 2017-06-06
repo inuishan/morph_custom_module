@@ -6,6 +6,7 @@ import morph.base.actions.impl.GoToFlowAction;
 import morph.base.actions.impl.SetVariableAction;
 import morph.base.beans.variables.BotContext;
 import morph.base.modules.Module;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
@@ -13,6 +14,7 @@ import java.util.*;
  * @author ishan
  * @since 05/06/17
  */
+@Service
 public class CityVerification implements Module {
 
     private static final Set<String> VALID_CITY_NAMES = new HashSet<String>();
