@@ -7,14 +7,12 @@ This repo contains two major sections which any user will need to understand bef
 
 ## BotContext:
 
-This contains execution context of bot at the point when custom module is called.
+This contains execution context of bot at the point when custom module is called.Bot context have four field which are self understood:
 
-Bot context have four field which are self understood:
-
-a) userVariables  
-b) flowVariables  
-c) globalVariables  
-d) user  
+1. userVariables  
+2. flowVariables  
+3. globalVariables  
+4. user  
 
 ## Action:
 
