@@ -5,7 +5,7 @@ This repo provides skeleton to write custom modules which can be consumed by bot
 
 This repo contains two major sections which any user will need to understand before diving into development.
 
-1. ## BotContext:
+## BotContext:
 
 This contains execution context of bot at the point when custom module is called.
 
@@ -16,23 +16,23 @@ b) flowVariables
 c) globalVariables  
 d) user  
 
-2. ## Action:
+## Action:
 
 This signifies the action the custom module wants to take.
 Action have three implementations as of now:
 
-1. PublishMessageAction: This can be used to send a message to customer.
-2. SetVariableAction: This can be used to set any varibale with given Key, Value and VaribleScope (one of the User , Flow and Global).
-3. GoToFlowAction: This can be used to jump over to any particular flow with given Key along with a flag signifying whether to rerun current flow or not. 
+1. **PublishMessageAction**: This can be used to send a message to customer.
+2. **SetVariableAction**: This can be used to set any varibale with given Key, Value and VaribleScope (one of the User , Flow and Global).
+3. **GoToFlowAction**: This can be used to jump over to any particular flow with given Key along with a flag signifying whether to rerun current flow or not. 
 
-#### Example Modules:
+## Example Modules:
 
 As a tutorial (and for easy on boarding) we have added two default module implementations:
 
 1) SamplePublishCustomModule: This published hello to customer.  
-
 2) FetchPersonalDetailFromEmailCustomModule:  This uses email of customer and use that to fetch their details making HTTP call to clearbit.  
-( NOTE: To use this you will have to replace field named "\<CLEARBIT_API_KEY>\" in class FetchPersonalDetailFromEmailCustomModule) with your personal key ).  
+
+> NOTE: To use this you will have to replace field named "\<CLEARBIT_API_KEY>\" in class FetchPersonalDetailFromEmailCustomModule) with your personal key .
 
 #### Dependency addition
 
