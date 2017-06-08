@@ -21,14 +21,9 @@ d) user
 This signifies the action the custom module wants to take.
 Action have three implementations as of now:
 
-a) PublishMessageAction:  
-This can be used to send a message to customer.
-
-b) SetVariableAction:  
-This can be used to set any varibale with given Key, Value and VaribleScope (one of the User , Flow and Global).
-
-c) GoToFlowAction:  
-This can be used to jump over to any particular flow with given Key along with a flag signifying whether to rerun current flow or not. 
+1. PublishMessageAction: This can be used to send a message to customer.
+2. SetVariableAction: This can be used to set any varibale with given Key, Value and VaribleScope (one of the User , Flow and Global).
+3. GoToFlowAction: This can be used to jump over to any particular flow with given Key along with a flag signifying whether to rerun current flow or not. 
 
 #### Example Modules:
 
