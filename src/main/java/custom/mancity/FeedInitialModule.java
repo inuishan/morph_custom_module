@@ -18,8 +18,6 @@ public class FeedInitialModule implements Module {
 
     private static final List<Feed> FEEDS = new ArrayList<Feed>();
 
-    private static final Map<String, Feed> FEED_IDS_MAP = new HashMap<String, Feed>();
-
     static {
         FEEDS.add(new Feed("Matchday", "57f09a1f2ff6ad5c373ca4ca", "Days we live " + "for! Live alerts, news and more" +
                 " on the day of the game.", "https://s3-us-west-2.amazonaws" + ".com/storage.morph" +
