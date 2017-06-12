@@ -23,7 +23,7 @@ public class FeedInitialModule implements Module {
                 " on the day of the game.", "https://s3-us-west-2.amazonaws" + ".com/storage.morph" +
                 ".ai/p/mancity/Matchday.jpg"));
         FEEDS.add(new Feed("Pep Talk", "57f09a1f2ff6ad5c373ca4cc", "All the info " + "and latest news surrounding " +
-                "our manager!", "\"https://s3-us-west-2.amazonaws.com/storage.morph" + ".ai/p/mancity/Pep+Talk.jpg"));
+                "our manager!", "https://s3-us-west-2.amazonaws.com/storage.morph" + ".ai/p/mancity/Pep+Talk.jpg"));
         FEEDS.add(new Feed("Round Up", "5832d743ebf2f9c854634100", "A daily " + "round-up of the top trending and " +
                 "shared stories on our website!", "https://s3-us-west-2.amazonaws" + ".com/storage.morph" +
                 ".ai/p/mancity/Round+up.jpg"));
