@@ -4,6 +4,7 @@ import custom.clearbit.model.ClearbitPersonalInfo;
 import custom.utils.GenericRestConnector;
 import jersey.repackaged.com.google.common.collect.Lists;
 import morph.base.actions.Action;
+import morph.base.actions.StringVariable;
 import morph.base.actions.VariableScope;
 import morph.base.actions.impl.SetVariableAction;
 import morph.base.beans.variables.BotContext;
@@ -45,13 +46,15 @@ public class FetchPersonalDetailFromEmailCustomModule implements Module {
         WebTarget webTargetForUrl = genericRestConnector.getWebTargetForUrl(clearbitPath + emailId.get());
         Invocation.Builder requestBuilder = webTargetForUrl.request(MediaType.APPLICATION_JSON_TYPE);
         requestBuilder.header("Authorization", "Bearer " + CLEARBIT_API_KEY);
-        ClearbitPersonalInfo clearbitPersonalInfo = genericRestConnector.get(requestBuilder, ClearbitPersonalInfo.class);
+        ClearbitPersonalInfo clearbitPersonalInfo = genericRestConnector.get(requestBuilder, ClearbitPersonalInfo
+                .class);
 
         if (clearbitPersonalInfo == null || clearbitPersonalInfo.getGeo() == null) {
             return Collections.emptyList();
         }
 
-        SetVariableAction setVariableAction = new SetVariableAction(VariableScope.FLOW, "country", clearbitPersonalInfo.getGeo().getCountry());
-        return Lists.newArrayList(setVariableAction);
+        SetVariableAction setVariableAction = new SetVariableAction(VariableScope.FLOW, "country", new StringVariable
+                ().value(clearbitPersonalInfo.getGeo().getCountry()));
+        return Lists.<Action>newArrayList(setVariableAction);
     }
 }

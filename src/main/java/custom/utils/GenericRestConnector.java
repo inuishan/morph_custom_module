@@ -121,7 +121,7 @@ public class GenericRestConnector {
 
     protected <T> T validateAndGetResponse(Invocation.Builder requestBuilder, Response requestResponse,
                                            Class<T> clazz) {
-        return validateAndGetResponse(requestBuilder, requestResponse, new GenericType<>(clazz));
+        return (T) validateAndGetResponse(requestBuilder, requestResponse, new GenericType<>(clazz));
     }
 
     public WebTarget getWebTargetForUrl(String url) {
