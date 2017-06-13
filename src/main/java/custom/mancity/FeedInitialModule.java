@@ -19,17 +19,18 @@ public class FeedInitialModule implements Module {
     private static final List<Feed> FEEDS = new ArrayList<Feed>();
 
     static {
-        FEEDS.add(new Feed("Matchday", "57f09a1f2ff6ad5c373ca4ca", "Days we live " + "for! Live alerts, news and more" +
-                " on the day of the game.", "https://s3-us-west-2.amazonaws" + ".com/storage.morph" +
-                ".ai/p/mancity/Matchday.jpg"));
-        FEEDS.add(new Feed("Pep Talk", "57f09a1f2ff6ad5c373ca4cc", "All the info " + "and latest news surrounding " +
-                "our manager!", "https://s3-us-west-2.amazonaws.com/storage.morph" + ".ai/p/mancity/Pep+Talk.jpg"));
         FEEDS.add(new Feed("Round Up", "5832d743ebf2f9c854634100", "A daily " + "round-up of the top trending and " +
                 "shared stories on our website!", "https://s3-us-west-2.amazonaws" + ".com/storage.morph" +
                 ".ai/p/mancity/Round+up.jpg"));
         FEEDS.add(new Feed("Social Buzz", "5832d810ebf2f9c854634101", "Top " + "trending City content and things " +
                 "we love from around the web!", "https://s3-us-west-2.amazonaws" + ".com/storage.morph" +
                 ".ai/p/mancity/Social+buzz+2.jpg"));
+        FEEDS.add(new Feed("Pep Talk", "57f09a1f2ff6ad5c373ca4cc", "All the info " + "and latest news surrounding " +
+                "our manager!", "https://s3-us-west-2.amazonaws.com/storage.morph" + ".ai/p/mancity/Pep+Talk.jpg"));
+
+        FEEDS.add(new Feed("Matchday", "57f09a1f2ff6ad5c373ca4ca", "Days we live " + "for! Live alerts, news and more" +
+                " on the day of the game.", "https://s3-us-west-2.amazonaws" + ".com/storage.morph" +
+                ".ai/p/mancity/Matchday.jpg"));
     }
 
 
@@ -81,7 +82,7 @@ public class FeedInitialModule implements Module {
         button.setButtonType(Button.ButtonType.POSTBACK);
         buttons.add(button);
         element.setButtons(buttons);
-        button.setActionPayload(new ActionPayload().flowKey("SYSTEM-FEED-SUBSCRIBE").value(aFeed.id));
+        button.setPayload("#flowk_SYSTEM-FEED-SUBSCRIBE_" + aFeed.id);
         return element;
     }
 
@@ -97,7 +98,7 @@ public class FeedInitialModule implements Module {
         button.setButtonType(Button.ButtonType.POSTBACK);
         buttons.add(button);
         element.setButtons(buttons);
-        button.setActionPayload(new ActionPayload().flowKey("UNSUBSCRIBE_FEED").value(aFeed.id));
+        button.setPayload("#flowk_SYSTEM-FEED-UNSUBSCRIBE_" + aFeed.id);
         return element;
     }
 
