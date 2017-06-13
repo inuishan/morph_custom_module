@@ -1,5 +1,6 @@
 package custom.mancity;
 
+import jersey.repackaged.com.google.common.collect.Lists;
 import morph.base.actions.Action;
 import morph.base.actions.impl.PublishMessageAction;
 import morph.base.beans.simplifiedmessage.*;
@@ -7,7 +8,9 @@ import morph.base.beans.variables.BotContext;
 import morph.base.modules.Module;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * @author ishan
@@ -51,6 +54,10 @@ public class FeedInitialModule implements Module {
             feedIds = new ArrayList<String>();
         }
         List<Action> rv = new ArrayList<Action>();
+
+        rv.add(addWelcomeText());
+
+
         PublishMessageAction publishMessageAction = new PublishMessageAction();
         SimplifiedMessage simplifiedMessage = new SimplifiedMessage();
         ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<SimplifiedMessagePayload>();
@@ -69,6 +76,18 @@ public class FeedInitialModule implements Module {
         }
         carousalMessagePayload.setCarousalElements(elements);
         return rv;
+    }
+
+    private Action addWelcomeText() {
+        PublishMessageAction publishMessageAction = new PublishMessageAction();
+        SimplifiedMessage simplifiedMessage = new SimplifiedMessage();
+        ArrayList<SimplifiedMessagePayload> payloads = Lists.<SimplifiedMessagePayload>newArrayList();
+        payloads.add(new TextMessagePayload().text("Hey there. Welcome to City on Facebook Messenger. Here, you can "
+                + "sign up for daily news updates, breaking transfer stories, and key club information."));
+        simplifiedMessage.setPayloads(payloads);
+        publishMessageAction.setSimplifiedMessage(simplifiedMessage);
+        return publishMessageAction;
+
     }
 
     private Element makeSubscribeCardForFeed(Feed aFeed) {
