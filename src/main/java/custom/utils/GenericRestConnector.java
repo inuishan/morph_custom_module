@@ -114,9 +114,8 @@ public class GenericRestConnector {
                 responseClass);
     }
 
-    public <T> T post(Invocation.Builder request, JsonNode body, Class<T> responseClass) {
-        return validateAndGetResponse(request, request.post(Entity.entity(body, MediaType.APPLICATION_JSON_TYPE)),
-                responseClass);
+    public <T> T post(Invocation.Builder request, Object body, MediaType mediaType, Class<T> responseClass) {
+        return validateAndGetResponse(request, request.post(Entity.entity(body, mediaType)), responseClass);
     }
 
     protected <T> T validateAndGetResponse(Invocation.Builder requestBuilder, Response requestResponse,
