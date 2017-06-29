@@ -1,7 +1,12 @@
 package custom.dhi;
 
+import custom.utils.ConnectorException;
 import custom.utils.GenericRestConnector;
 import morph.base.actions.Action;
+import morph.base.actions.impl.PublishMessageAction;
+import morph.base.beans.simplifiedmessage.Button;
+import morph.base.beans.simplifiedmessage.SimplifiedMessage;
+import morph.base.beans.simplifiedmessage.TextMessagePayload;
 import morph.base.beans.variables.BotContext;
 import morph.base.modules.Module;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -13,6 +18,7 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -41,6 +47,7 @@ public class PayULink implements Module {
         PayULink payULink = new PayULink();
         payULink.execute(null);
     }
+
     @Override
     public List<Action> execute(BotContext botContext) {
         WebTarget webTargetForUrl = genericRestConnector
@@ -53,8 +60,7 @@ public class PayULink implements Module {
         form.param("client_secret", "8566024f3773f6b9234531a93b84ac22");
 
         PayUAccessTokenDetails token = genericRestConnector
-                .post(requestBuilder, form, MediaType.APPLICATION_FORM_URLENCODED_TYPE,
-                        PayUAccessTokenDetails.class);
+                .post(requestBuilder, form, MediaType.APPLICATION_FORM_URLENCODED_TYPE, PayUAccessTokenDetails.class);
         String accessToken = token.access_token;
 
         WebTarget orderWT = genericRestConnector.getWebTargetForUrl("https://secure.snd.payu.com/api/v2_1/orders/");
@@ -67,46 +73,39 @@ public class PayULink implements Module {
         bodyNode.put("merchantPosId", "301453");
         bodyNode.put("description", "RTV market");
         bodyNode.put("currencyCode", "PLN");
-        bodyNode.put("totalAmount", "15000");
+        bodyNode.put("totalAmount", "200");
         ArrayNode products = objectMapper.createArrayNode();
         ObjectNode product = objectMapper.createObjectNode();
-        product.put("name", "Wireless mouse");
-        product.put("unitPrice", "15000");
+        product.put("name", "DHI Appointment");
+        product.put("unitPrice", "200");
         product.put("quantity", "1");
         products.add(product);
         bodyNode.put("products", products);
-        genericRestConnector.post(orderRequestBuilder, bodyNode, MediaType.APPLICATION_JSON_TYPE, String.class);
 
-        //Optional<Object> flowVariable = botContext.getFlowVariable("5936f80454e66318322eed25");
-        //List<Action> actions = new ArrayList<Action>();
-        //Object o = flowVariable.get();
-        //String lastMessage = (String) o;
-        //if (VALID_CITY_NAMES.contains(lastMessage.toLowerCase())) {
-        //    actions.add(new SetVariableAction(VariableScope.FLOW, "5935644354e6637f6a976d99", new StringVariable()
-        //            .value(lastMessage.toLowerCase())));
-        //    SimplifiedMessage message = new SimplifiedMessage();
-        //    TextMessagePayload payload = new TextMessagePayload();
-        //    payload.setText("Hello variable set" + botContext.getUser().getName());
-        //    ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<SimplifiedMessagePayload>();
-        //    payloads.add(payload);
-        //    message.setPayloads(payloads);
-        //    PublishMessageAction e = new PublishMessageAction();
-        //    e.setSimplifiedMessage(message);
-        //    actions.add(e);
-        //    actions.add(new GoToFlowAction("cityVerified", false));
-        //} else {
-        //    SimplifiedMessage message = new SimplifiedMessage();
-        //    TextMessagePayload payload = new TextMessagePayload();
-        //    payload.setText("Hello variable not set" + botContext.getUser().getName());
-        //    ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<SimplifiedMessagePayload>();
-        //    payloads.add(payload);
-        //    message.setPayloads(payloads);
-        //    PublishMessageAction e = new PublishMessageAction();
-        //    e.setSimplifiedMessage(message);
-        //    actions.add(e);
-        //    actions.add(new GoToFlowAction("cityFailed", false));
-        //}
-        return null;
+        String url = null;
+        try {
+            genericRestConnector.post(orderRequestBuilder, bodyNode, MediaType.APPLICATION_JSON_TYPE, String.class);
+        } catch (ConnectorException e) {
+            if (e.getCode() == 302) {
+                url = (String) e.getResponse().getHeaders().getFirst("Location");
+            }
+        }
+
+        SimplifiedMessage message = new SimplifiedMessage();
+        TextMessagePayload payload = new TextMessagePayload();
+        payload.setText(
+                "Thank you for booking the appointment. Please click on the button below to pay appointment fees.");
+        Button button = new Button();
+        button.setTitle("Pay");
+        button.setButtonType(Button.ButtonType.URL);
+        button.setUrl(url);
+        button.setWebviewHeightRatio(Button.WebviewHeightRatio.TALL);
+        payload.setButtons(Collections.singletonList(button));
+        message.setPayloads(Collections.singletonList(payload));
+        PublishMessageAction e = new PublishMessageAction();
+        e.setSimplifiedMessage(message);
+
+        return Collections.singletonList(e);
     }
 
     private static class PayUAccessTokenDetails {
