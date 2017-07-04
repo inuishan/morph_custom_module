@@ -88,8 +88,7 @@ public class PayULink implements Module {
         String url = null;
         try {
             Response response = requestBuilder.post(Entity.entity(form, MediaType.APPLICATION_JSON_TYPE));
-            String location = response.getHeaderString("Location");
-            url = location;
+            url = response.getHeaderString("Location");
         } catch (ConnectorException e) {
             if (e.getCode() == 302) {
                 url = (String) e.getResponse().getHeaders().getFirst("Location");
