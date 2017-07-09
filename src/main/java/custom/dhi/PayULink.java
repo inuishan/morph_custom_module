@@ -2,7 +2,7 @@ package custom.dhi;
 
 import custom.utils.ConnectorException;
 import custom.utils.GenericRestConnector;
-import jersey.repackaged.com.google.common.base.Joiner;
+import jersey.repackaged.com.google.common.collect.Maps;
 import morph.base.actions.Action;
 import morph.base.actions.impl.PublishMessageAction;
 import morph.base.beans.simplifiedmessage.Button;
@@ -10,9 +10,6 @@ import morph.base.beans.simplifiedmessage.SimplifiedMessage;
 import morph.base.beans.simplifiedmessage.TextMessagePayload;
 import morph.base.beans.variables.BotContext;
 import morph.base.modules.Module;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.ObjectNode;
 import org.glassfish.jersey.client.ClientProperties;
 import org.springframework.stereotype.Service;
 
@@ -22,12 +19,9 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Copyright (C) 2017 Scupids - All Rights Reserved
@@ -39,12 +33,31 @@ import java.util.UUID;
 @Service
 public class PayULink implements Module {
 
-    private static final GenericRestConnector genericRestConnector = new GenericRestConnector();
-    private ObjectMapper objectMapper;
+    private static final Map<String, Double> CITY_VS_AMOUNT = Maps.newHashMap();
 
-    public PayULink() {
-        objectMapper = new ObjectMapper();
+
+    static {
+        CITY_VS_AMOUNT.put("delhi", 500D);
+        CITY_VS_AMOUNT.put("gurugram", 500D);
+        CITY_VS_AMOUNT.put("mumbai", 500D);
+        CITY_VS_AMOUNT.put("bangalore", 500D);
+        CITY_VS_AMOUNT.put("pune", 400D);
+        CITY_VS_AMOUNT.put("chennai", 350D);
+        CITY_VS_AMOUNT.put("kolkata", 350D);
+        CITY_VS_AMOUNT.put("kochi", 350D);
+        CITY_VS_AMOUNT.put("ahmedabad", 350D);
+        CITY_VS_AMOUNT.put("hyderabad", 350D);
+        CITY_VS_AMOUNT.put("chandigarh", 350D);
+        CITY_VS_AMOUNT.put("ludhiana", 350D);
+        CITY_VS_AMOUNT.put("jaipur", 350D);
+        CITY_VS_AMOUNT.put("surat", 250D);
+        CITY_VS_AMOUNT.put("calicut", 350D);
+        CITY_VS_AMOUNT.put("saharanpur", 350D);
+        CITY_VS_AMOUNT.put("guwahati", 350D);
+        CITY_VS_AMOUNT.put("lucknow", 350D);
     }
+
+    private static final GenericRestConnector genericRestConnector = new GenericRestConnector();
 
     @Override
     public String getModuleName() {
@@ -58,31 +71,39 @@ public class PayULink implements Module {
 
     @Override
     public List<Action> execute(BotContext botContext) {
-        WebTarget webTargetForUrl = genericRestConnector
-                .getWebTargetForUrl("https://secure.payu.in/_payment");
+
+        Optional<Object> flowVariable = botContext.getFlowVariable("5935644354e6637f6a976d99");
+        Object o = flowVariable.get();
+        String city = (String) o;
+        double amount = CITY_VS_AMOUNT.get(city.toLowerCase());
+
+
+        WebTarget webTargetForUrl = genericRestConnector.getWebTargetForUrl("https://secure.payu.in/_payment");
         webTargetForUrl = webTargetForUrl.property(ClientProperties.FOLLOW_REDIRECTS, false);
         Invocation.Builder requestBuilder = webTargetForUrl.request(MediaType.APPLICATION_FORM_URLENCODED_TYPE);
-//        hash=cc605fb7acad1690c661f8c600d3858df7e01124fe308a5ab56f59015efc7105498f2e3acbeea344a3c04f221eb9fbd7437e6482f48bbc9d14769e24b38b8f3b
+//
+// hash=cc605fb7acad1690c661f8c600d3858df7e01124fe308a5ab56f59015efc7105498f2e3acbeea344a3c04f221eb9fbd7437e6482f48bbc9d14769e24b38b8f3b
         Form form = new Form();
         String key = "KQ68DK";
         form.param("key", key);
-        String transactionId = "MORPH_1";
-        form.param("txnid", UUID.randomUUID().toString().substring(0, 23));
-        String amount = "200";
-        form.param("amount", amount);
+        String transactionId = UUID.randomUUID().toString().substring(0, 23);
+        form.param("txnid", transactionId);
+        form.param("amount", String.valueOf(amount));
         String productInfo = "DHI Appointment booking";
         form.param("productinfo", productInfo);
-        String name = "Ishan";
+        String name = getStringValueUserVar(botContext, "#SYS_NAME");
         form.param("firstname", name);
-        String email = "ishan@morph.ai";
+        String email = getStringValueUserVar(botContext, "#SYS_EMAIL");
         form.param("email", email);
-        String phoneNumber = "9650073354";
+        String phoneNumber = getStringValueUserVar(botContext, "_PHONE_NUMBER");
         form.param("phone", phoneNumber);
         String successUrl = "http://www.google.com";
         form.param("surl", successUrl);
         String failureUrl = "http://www.google.com";
         form.param("furl", failureUrl);
-        String hash = hashCal("SHA-512", key + "|" + transactionId + "|" + amount + "|" + productInfo + "|" + name + "|" + email + "|||||||||||" + "MCtAa9kT");
+        String hash = hashCal("SHA-512",
+                key + "|" + transactionId + "|" + amount + "|" + productInfo + "|" + name + "|" + email +
+                        "|||||||||||" + "MCtAa9kT");
         form.param("hash", hash);
 
         String url = null;
@@ -166,6 +187,13 @@ public class PayULink implements Module {
         }
 
         return hexString.toString();
+    }
+
+    private String getStringValueUserVar(BotContext botContext, String key) {
+
+        Optional<Object> flowVariable = botContext.getUserVariable(key);
+        Object o = flowVariable.get();
+        return (String) o;
     }
 
     private static class PayUAccessTokenDetails {
