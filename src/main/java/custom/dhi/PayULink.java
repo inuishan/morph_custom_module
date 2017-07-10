@@ -37,24 +37,24 @@ public class PayULink implements Module {
 
 
     static {
-        CITY_VS_AMOUNT.put("delhi", 500D);
-        CITY_VS_AMOUNT.put("gurugram", 500D);
-        CITY_VS_AMOUNT.put("mumbai", 500D);
-        CITY_VS_AMOUNT.put("bangalore", 500D);
-        CITY_VS_AMOUNT.put("pune", 400D);
-        CITY_VS_AMOUNT.put("chennai", 350D);
-        CITY_VS_AMOUNT.put("kolkata", 350D);
-        CITY_VS_AMOUNT.put("kochi", 350D);
-        CITY_VS_AMOUNT.put("ahmedabad", 350D);
-        CITY_VS_AMOUNT.put("hyderabad", 350D);
-        CITY_VS_AMOUNT.put("chandigarh", 350D);
-        CITY_VS_AMOUNT.put("ludhiana", 350D);
-        CITY_VS_AMOUNT.put("jaipur", 350D);
-        CITY_VS_AMOUNT.put("surat", 250D);
-        CITY_VS_AMOUNT.put("calicut", 350D);
-        CITY_VS_AMOUNT.put("saharanpur", 350D);
-        CITY_VS_AMOUNT.put("guwahati", 350D);
-        CITY_VS_AMOUNT.put("lucknow", 350D);
+        CITY_VS_AMOUNT.put("delhi", 500D); //north
+        CITY_VS_AMOUNT.put("gurugram", 500D); //north
+        CITY_VS_AMOUNT.put("mumbai", 500D);//west
+        CITY_VS_AMOUNT.put("bangalore", 500D);//south
+        CITY_VS_AMOUNT.put("pune", 400D);//west
+        CITY_VS_AMOUNT.put("chennai", 350D);//south
+        CITY_VS_AMOUNT.put("kolkata", 350D);//east
+        CITY_VS_AMOUNT.put("kochi", 350D);//south
+        CITY_VS_AMOUNT.put("ahmedabad", 350D);//west
+        CITY_VS_AMOUNT.put("hyderabad", 350D);//south
+        CITY_VS_AMOUNT.put("chandigarh", 350D);//north
+        CITY_VS_AMOUNT.put("ludhiana", 350D);//north
+        CITY_VS_AMOUNT.put("jaipur", 350D);//west
+        CITY_VS_AMOUNT.put("surat", 250D);//west
+        CITY_VS_AMOUNT.put("calicut", 350D);//south
+        CITY_VS_AMOUNT.put("saharanpur", 350D);//north
+        CITY_VS_AMOUNT.put("guwahati", 350D);//east
+        CITY_VS_AMOUNT.put("lucknow", 350D);//north
     }
 
     private static final GenericRestConnector genericRestConnector = new GenericRestConnector();

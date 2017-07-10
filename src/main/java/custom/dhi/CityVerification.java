@@ -8,7 +8,6 @@ import morph.base.actions.impl.PublishMessageAction;
 import morph.base.actions.impl.SetVariableAction;
 import morph.base.beans.simplifiedmessage.SimplifiedMessage;
 import morph.base.beans.simplifiedmessage.SimplifiedMessagePayload;
-import morph.base.beans.simplifiedmessage.TextMessagePayload;
 import morph.base.beans.variables.BotContext;
 import morph.base.modules.Module;
 import org.springframework.stereotype.Service;
@@ -61,10 +60,10 @@ public class CityVerification implements Module {
             actions.add(new SetVariableAction(VariableScope.FLOW, "5935644354e6637f6a976d99", new StringVariable()
                     .value(lastMessage.toLowerCase())));
             SimplifiedMessage message = new SimplifiedMessage();
-            TextMessagePayload payload = new TextMessagePayload();
-            payload.setText("Hello variable set" + botContext.getUser().getName());
+            //TextMessagePayload payload = new TextMessagePayload();
+            //payload.setText("Hello variable set" + botContext.getUser().getName());
             ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<SimplifiedMessagePayload>();
-            payloads.add(payload);
+            //payloads.add(payload);
             message.setPayloads(payloads);
             PublishMessageAction e = new PublishMessageAction();
             e.setSimplifiedMessage(message);
@@ -72,10 +71,10 @@ public class CityVerification implements Module {
             actions.add(new GoToFlowAction("cityVerified", false));
         } else {
             SimplifiedMessage message = new SimplifiedMessage();
-            TextMessagePayload payload = new TextMessagePayload();
-            payload.setText("Hello variable not set" + botContext.getUser().getName());
+            //TextMessagePayload payload = new TextMessagePayload();
+            //payload.setText("Hello variable not set" + botContext.getUser().getName());
             ArrayList<SimplifiedMessagePayload> payloads = new ArrayList<SimplifiedMessagePayload>();
-            payloads.add(payload);
+            //payloads.add(payload);
             message.setPayloads(payloads);
             PublishMessageAction e = new PublishMessageAction();
             e.setSimplifiedMessage(message);
