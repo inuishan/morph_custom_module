@@ -10,10 +10,14 @@ apply plugin: 'java'
 
 repositories {
     mavenCentral()
+    maven {
+        url "http://104.155.191.79:8081/nexus/content/repositories/thirdparty"
+    }
 }
 
 dependencies {
-
+    compile 'com.altin:custom-code:1.0.4'
+    compile("com.amazonaws:aws-lambda-java-core:1.1.0")
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     // https://mvnrepository.com/artifact/org.jsoup/jsoup

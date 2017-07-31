@@ -97,9 +97,9 @@ public class PayULink implements Module {
         form.param("email", email);
         String phoneNumber = getStringValueUserVar(botContext, "_PHONE_NUMBER");
         form.param("phone", phoneNumber);
-        String successUrl = "http://www.google.com";
+        String successUrl = "https://app.morph.ai/pages/payment-success.html";
         form.param("surl", successUrl);
-        String failureUrl = "http://www.google.com";
+        String failureUrl = "https://app.morph.ai/pages/payment-failed.html";
         form.param("furl", failureUrl);
         String hash = hashCal("SHA-512",
                 key + "|" + transactionId + "|" + amount + "|" + productInfo + "|" + name + "|" + email +
@@ -159,7 +159,7 @@ public class PayULink implements Module {
         button.setUrl(url);
         button.setWebviewHeightRatio(Button.WebviewHeightRatio.TALL);
         payload.setButtons(Collections.singletonList(button));
-        message.setPayloads(Collections.singletonList(payload));
+        message.setMessages(Collections.singletonList(payload));
         PublishMessageAction e = new PublishMessageAction();
         e.setSimplifiedMessage(message);
 

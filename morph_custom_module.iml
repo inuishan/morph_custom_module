@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.id="morph_custom_module" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="morph_custom_module" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="false">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/build/classes/main" />
     <output-test url="file://$MODULE_DIR$/build/classes/test" />
     <exclude-output />
@@ -14,40 +19,89 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:4.2.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.2.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.2.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:4.2.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.2.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-client:2.25.1" level="project" />
-    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-common:2.25.1" level="project" />
-    <orderEntry type="library" name="Gradle: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-api:2.5.0-b32" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:javax.inject:2.5.0-b32" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-locator:2.5.0-b32" level="project" />
-    <orderEntry type="library" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.25.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-utils:2.5.0-b32" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b32" level="project" />
-    <orderEntry type="library" name="Gradle: org.javassist:javassist:3.20.0-GA" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.media:jersey-media-json-jackson:2.7" level="project" />
-    <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-jaxrs:1.9.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-xc:1.9.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.jsoup:jsoup:1.5.2" level="project" />
-    <orderEntry type="module-library">
-      <library name="Gradle: morph_custom_module_jar-1.0-SNAPSHOT">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/morph_custom_module_jar-1.0-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jsoup:jsoup:1.5.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.altin:custom-code:1.0.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.altin:custom-code:1.0.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.altin:custom-code:1.0.4" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.amazonaws:aws-lambda-java-core:1.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.amazonaws:aws-lambda-java-core:1.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.amazonaws:aws-lambda-java-core:1.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.jersey.media:jersey-media-json-jackson:2.7" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.jersey.core:jersey-client:2.25.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.jersey.core:jersey-common:2.25.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework:spring-context:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.jackson:jackson-jaxrs:1.9.13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.jackson:jackson-xc:1.9.13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.hk2:hk2-locator:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.hk2:hk2-api:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.hk2.external:javax.inject:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework:spring-aop:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework:spring-beans:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework:spring-expression:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework:spring-core:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.hk2:hk2-utils:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.javassist:javassist:3.20.0-GA" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.25.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jsoup:jsoup:1.5.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.jersey.media:jersey-media-json-jackson:2.7" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.jersey.core:jersey-client:2.25.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.jersey.core:jersey-common:2.25.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-context:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.jackson:jackson-jaxrs:1.9.13" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.jackson:jackson-xc:1.9.13" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.hk2:hk2-locator:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.hk2:hk2-api:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.hk2.external:javax.inject:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-aop:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-beans:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-expression:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-core:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.hk2:hk2-utils:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.javassist:javassist:3.20.0-GA" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.25.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jsoup:jsoup:1.5.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.jersey.media:jersey-media-json-jackson:2.7" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.jersey.core:jersey-client:2.25.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.jersey.core:jersey-common:2.25.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-context:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.jackson:jackson-jaxrs:1.9.13" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.jackson:jackson-xc:1.9.13" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.hk2:hk2-locator:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.hk2:hk2-api:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.hk2.external:javax.inject:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-aop:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-beans:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-expression:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-core:4.2.9.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.hk2:hk2-utils:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b32" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.javassist:javassist:3.20.0-GA" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.25.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
   </component>
 </module>
